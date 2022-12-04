@@ -1,4 +1,4 @@
-package io.github.kureung;
+package io.github.kureung.domain;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

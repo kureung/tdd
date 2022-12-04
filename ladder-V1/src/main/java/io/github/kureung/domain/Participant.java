@@ -1,4 +1,4 @@
-package io.github.kureung;
+package io.github.kureung.domain;
 
 public record Participant(String name) {
     public Participant {
