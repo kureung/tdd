@@ -5,8 +5,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.*;
 
 class ParticipantTest {
@@ -40,7 +38,7 @@ class ParticipantTest {
         Participant participantA = new Participant("a");
         Participant participantB = new Participant("b");
         assertThat(participantA.crossedParticipants(true, participantB))
-                .isEqualTo(List.of(participantB, participantA));
+                .isEqualTo(new CrossingResult(participantB, participantA));
     }
 
     @Test
@@ -48,6 +46,6 @@ class ParticipantTest {
         Participant participantA = new Participant("a");
         Participant participantB = new Participant("b");
         assertThat(participantA.crossedParticipants(false, participantB))
-                .isEqualTo(List.of(participantA, participantB));
+                .isEqualTo(new CrossingResult(participantA, participantB));
     }
 }

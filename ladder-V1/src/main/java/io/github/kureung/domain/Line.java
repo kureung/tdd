@@ -44,9 +44,9 @@ public record Line(List<Boolean> doRoadsExist) {
         for (int i = 0; i < beforeCrossing.size() - 1; i++) {
             Participant current = afterCrossing.get(i);
             Participant next = afterCrossing.get(i + 1);
-            List<Participant> crossedParticipants = current.crossedParticipants(copiedDoRoadsExist.poll(), next);
-            afterCrossing.set(i, crossedParticipants.get(0));
-            afterCrossing.set(i + 1, crossedParticipants.get(1));
+            CrossingResult crossingResult = current.crossedParticipants(copiedDoRoadsExist.poll(), next);
+            afterCrossing.set(i, crossingResult.preParticipant());
+            afterCrossing.set(i + 1, crossingResult.postParticipant());
         }
     }
 }

@@ -1,7 +1,5 @@
 package io.github.kureung.domain;
 
-import java.util.List;
-
 public record Participant(String name) {
     public Participant {
         if (name == null || name.length() == 0) {
@@ -13,9 +11,9 @@ public record Participant(String name) {
         }
     }
 
-    public List<Participant> crossedParticipants(boolean doesRoadExist, Participant other) {
+    public CrossingResult crossedParticipants(boolean doesRoadExist, Participant other) {
         return doesRoadExist
-                ? List.of(other, this)
-                : List.of(this, other);
+                ? new CrossingResult(other, this)
+                : new CrossingResult(this, other);
     }
 }
