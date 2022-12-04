@@ -5,8 +5,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.*;
 
 class ParticipantTest {
     @Test
@@ -32,5 +33,21 @@ class ParticipantTest {
     void 이름은_1자이상_5자이하이어야_한다(final String name) {
         assertThatCode(() -> new Participant(name))
                 .doesNotThrowAnyException();
+    }
+
+    @Test
+    void 길이_있을_경우_참여자들은_서로의_위차가_바뀐다() {
+        Participant participantA = new Participant("a");
+        Participant participantB = new Participant("b");
+        assertThat(participantA.crossedParticipants(true, participantB))
+                .isEqualTo(List.of(participantB, participantA));
+    }
+
+    @Test
+    void 길이_없을_경우_참여자들은_위치가_그대로다() {
+        Participant participantA = new Participant("a");
+        Participant participantB = new Participant("b");
+        assertThat(participantA.crossedParticipants(false, participantB))
+                .isEqualTo(List.of(participantA, participantB));
     }
 }
