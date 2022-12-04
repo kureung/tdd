@@ -6,6 +6,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.*;
 
 class LineTest {
     @Test
@@ -26,5 +27,14 @@ class LineTest {
     void 행의_요소의_개수를_구할_수_있다() {
         final Line line = new Line(true);
         assertThat(line.size()).isEqualTo(1);
+    }
+
+    @Test
+    void 요소의_개수가_다른지_판별할_수_있다() {
+        final Line line = new Line(true);
+        assertAll(
+                () -> assertTrue(line.isNotSameSize(2)),
+                () -> assertFalse(line.isNotSameSize(1))
+        );
     }
 }

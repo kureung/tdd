@@ -25,4 +25,8 @@ public record Line(List<Boolean> doRoadsExist) {
     public int size() {
         return doRoadsExist.size();
     }
+
+    public boolean isNotSameSize(int size) {
+        return size() != size;
+    }
 }
