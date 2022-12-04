@@ -22,4 +22,7 @@ public record Line(List<Boolean> doRoadsExist) {
                 .toList();
     }
 
+    public int size() {
+        return doRoadsExist.size();
+    }
 }

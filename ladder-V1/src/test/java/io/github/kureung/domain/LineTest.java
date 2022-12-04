@@ -21,4 +21,10 @@ class LineTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("참이 연속해서 올 수 없습니다.");
     }
+
+    @Test
+    void 행의_요소의_개수를_구할_수_있다() {
+        final Line line = new Line(true);
+        assertThat(line.size()).isEqualTo(1);
+    }
 }
