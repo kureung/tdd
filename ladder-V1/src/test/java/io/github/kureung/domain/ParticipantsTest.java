@@ -12,4 +12,10 @@ class ParticipantsTest {
         final List<Participant> Participants = List.of(new Participant("1"));
         assertThat(new Participants("1")).isEqualTo(new Participants(Participants));
     }
+
+    @Test
+    void 참여자들의_수를_구할_수_있다() {
+        final Participants participants = new Participants("1");
+        assertThat(participants.size()).isEqualTo(1);
+    }
 }

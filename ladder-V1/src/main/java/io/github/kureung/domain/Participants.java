@@ -13,4 +13,8 @@ public record Participants(List<Participant> values) {
                 .map(Participant::new)
                 .toList();
     }
+
+    public int size() {
+        return values.size();
+    }
 }
