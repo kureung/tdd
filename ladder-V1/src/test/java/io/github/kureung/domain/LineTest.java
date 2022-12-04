@@ -1,14 +1,26 @@
 package io.github.kureung.domain;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LineTest {
+    private static Stream<Arguments> 참여자들은_길을_건널_수_있다() {
+        return Stream.of(
+                Arguments.of(new Participants("a", "b"), new Line(true), new Participants("b", "a")),
+                Arguments.of(new Participants("a", "b"), new Line(false), new Participants("a", "b")),
+                Arguments.of(new Participants("a", "b", "c", "d"),  new Line(true, false, true), new Participants("b", "a", "d", "c"))
+        );
+    }
+
     @Test
     void 부_생성자의_주_생성자_변환_테스트() {
         final List<Boolean> doRoadsExist = List.of(true);
@@ -36,5 +48,11 @@ class LineTest {
                 () -> assertTrue(line.isNotSameSize(2)),
                 () -> assertFalse(line.isNotSameSize(1))
         );
+    }
+
+    @MethodSource
+    @ParameterizedTest
+    void 참여자들은_길을_건널_수_있다(Participants beforeCrossing, Line line, Participants afterCrossing) {
+        assertThat(line.ParticipantsCrossedTheRoad(beforeCrossing)).isEqualTo(afterCrossing);
     }
 }
