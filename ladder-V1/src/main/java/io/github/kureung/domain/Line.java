@@ -41,12 +41,12 @@ public record Line(List<Boolean> doRoadsExist) {
     }
 
     private void crossTheRoad(Participants beforeCrossing, Deque<Boolean> copiedDoRoadsExist, List<Participant> afterCrossing) {
-        for (int i = 0; i < beforeCrossing.size() - 1; i++) {
-            Participant current = afterCrossing.get(i);
-            Participant next = afterCrossing.get(i + 1);
+        for (int index = 0; index < beforeCrossing.size() - 1; index++) {
+            Participant current = afterCrossing.get(index);
+            Participant next = afterCrossing.get(index + 1);
             CrossingResult crossingResult = current.crossedParticipants(copiedDoRoadsExist.poll(), next);
-            afterCrossing.set(i, crossingResult.preParticipant());
-            afterCrossing.set(i + 1, crossingResult.postParticipant());
+            afterCrossing.set(index, crossingResult.preParticipant());
+            afterCrossing.set(index + 1, crossingResult.postParticipant());
         }
     }
 }
