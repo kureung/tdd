@@ -12,4 +12,10 @@ public record Results(List<String> values) {
         return Arrays.stream(values)
                 .toList();
     }
+
+
+    public String value(int index) {
+        return values.get(index);
+    }
+
 }

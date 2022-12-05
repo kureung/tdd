@@ -13,4 +13,10 @@ class ResultsTest {
         assertThat(new Results("a"))
                 .isEqualTo(new Results(results));
     }
+
+    @Test
+    void 인덱스로_결과들을_조회할_수_있다() {
+        Results results = new Results("a", "b");
+        assertThat(results.value(0)).isEqualTo("a");
+    }
 }
