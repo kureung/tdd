@@ -24,4 +24,8 @@ public record Lines(List<Line> values) {
         return values.stream()
                 .anyMatch(line -> line.isNotSameSize(firstLineSize));
     }
+
+    public boolean isNotSizeMoreThanOne(Participants participants) {
+        return values.size() - participants.size() != 1;
+    }
 }
