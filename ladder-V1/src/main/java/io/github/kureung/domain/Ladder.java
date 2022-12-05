@@ -6,4 +6,10 @@ public record Ladder(Participants participants, Lines lines, Results results) {
             throw new IllegalArgumentException("참여자들의 수와 결과들의 개수는 같아야합니다.");
         }
     }
+
+    public String result(String name) {
+        final Participants afterCrossing = lines.participantsCrossingTheRoad(participants);
+        final int resultIndex = afterCrossing.participantIndex(name);
+        return results.value(resultIndex);
+    }
 }
