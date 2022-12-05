@@ -19,6 +19,10 @@ public record Participants(List<Participant> values) {
     }
 
     public int participantIndex(String name) {
-        return values().indexOf(new Participant(name));
+        Participant participant = new Participant(name);
+        if (!values.contains(participant)) {
+            throw new IllegalStateException("해당하는 이름을 가진 참여자가 없습니다.");
+        }
+        return values().indexOf(participant);
     }
 }
