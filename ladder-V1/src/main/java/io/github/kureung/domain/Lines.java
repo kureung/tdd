@@ -28,7 +28,7 @@ public record Lines(List<Line> values) {
     public Participants participantsCrossingTheRoad(Participants beforeCrossing) {
        Participants participants = beforeCrossing;
         for (Line line : values) {
-            participants = line.ParticipantsCrossedTheRoad(participants);
+            participants = line.participantsCrossedTheRoad(participants);
         }
         return participants;
     }

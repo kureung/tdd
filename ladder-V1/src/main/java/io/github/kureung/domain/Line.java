@@ -33,7 +33,7 @@ public record Line(List<Boolean> doRoadsExist) {
         return size() != size;
     }
 
-    public Participants ParticipantsCrossedTheRoad(Participants beforeCrossing) {
+    public Participants participantsCrossedTheRoad(Participants beforeCrossing) {
         verifyParticipantsSize(beforeCrossing);
         final Deque<Boolean> doRoadsExistCollection = new ArrayDeque<>(doRoadsExist);
         final List<Participant> afterCrossing = new ArrayList<>(beforeCrossing.values());
