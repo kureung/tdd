@@ -34,4 +34,14 @@ class LinesTest {
         final Participants participants = new Participants("1");
         assertTrue(lines.isNotSizeMoreThanOne(participants));
     }
+
+    @Test
+    void 길을_건넌_결과를_알_수_있다() {
+        final Line firstLine = new Line(true);
+        final Line secondLine = new Line(false);
+        final Lines lines = new Lines(firstLine, secondLine);
+        final Participants participants = new Participants("a", "b");
+        assertThat(lines.participantsCrossingTheRoad(participants))
+                .isEqualTo(new Participants("b", "a"));
+    }
 }

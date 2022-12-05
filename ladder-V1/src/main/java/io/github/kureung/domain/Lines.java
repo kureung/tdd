@@ -28,4 +28,13 @@ public record Lines(List<Line> values) {
     public boolean isNotSizeMoreThanOne(Participants participants) {
         return values.size() - participants.size() != 1;
     }
+
+
+    public Participants participantsCrossingTheRoad(Participants beforeCrossing) {
+       Participants participants = beforeCrossing;
+        for (Line line : values) {
+            participants = line.ParticipantsCrossedTheRoad(participants);
+        }
+        return participants;
+    }
 }
