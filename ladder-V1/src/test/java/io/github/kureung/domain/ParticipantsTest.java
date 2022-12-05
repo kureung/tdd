@@ -18,4 +18,11 @@ class ParticipantsTest {
         final Participants participants = new Participants("1");
         assertThat(participants.size()).isEqualTo(1);
     }
+
+    @Test
+    void 참여자의_이름을_통해_참여자의_인덱스를_구할_수_있다() {
+        final String name = "a";
+        final Participants participants = new Participants(name);
+        assertThat(participants.participantIndex(name)).isEqualTo(0);
+    }
 }

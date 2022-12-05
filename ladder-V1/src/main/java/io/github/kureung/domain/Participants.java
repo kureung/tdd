@@ -17,4 +17,8 @@ public record Participants(List<Participant> values) {
     public int size() {
         return values.size();
     }
+
+    public int participantIndex(String name) {
+        return values().indexOf(new Participant(name));
+    }
 }
