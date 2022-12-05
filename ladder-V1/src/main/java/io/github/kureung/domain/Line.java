@@ -34,10 +34,17 @@ public record Line(List<Boolean> doRoadsExist) {
     }
 
     public Participants ParticipantsCrossedTheRoad(Participants beforeCrossing) {
+        verifyParticipantsSize(beforeCrossing);
         final Deque<Boolean> doRoadsExistCollection = new ArrayDeque<>(doRoadsExist);
         final List<Participant> afterCrossing = new ArrayList<>(beforeCrossing.values());
         crossTheRoad(beforeCrossing, doRoadsExistCollection, afterCrossing);
         return new Participants(afterCrossing);
+    }
+
+    private void verifyParticipantsSize(Participants beforeCrossing) {
+        if (beforeCrossing.size() - doRoadsExist.size() != 1) {
+            throw new IllegalArgumentException("참여자들의 수가 행의 요소의 개수 보다 1개 더 많아야 합니다.");
+        }
     }
 
     private void crossTheRoad(Participants beforeCrossing, Deque<Boolean> copiedDoRoadsExist, List<Participant> afterCrossing) {

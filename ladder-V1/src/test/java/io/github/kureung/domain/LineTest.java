@@ -55,4 +55,13 @@ class LineTest {
     void 참여자들은_길을_건널_수_있다(Participants beforeCrossing, Line line, Participants afterCrossing) {
         assertThat(line.ParticipantsCrossedTheRoad(beforeCrossing)).isEqualTo(afterCrossing);
     }
+
+    @Test
+    void 참여자들의_수가_행의_요소의_개수보다_1개_더_많지_않으면_예외가_발생한다() {
+        Participants participants = new Participants("a", "b");
+        Line line = new Line(true, false);
+        assertThatThrownBy(() -> line.ParticipantsCrossedTheRoad(participants))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("참여자들의 수가 행의 요소의 개수 보다 1개 더 많아야 합니다.");
+    }
 }
