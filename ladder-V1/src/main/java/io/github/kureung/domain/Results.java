@@ -13,9 +13,12 @@ public record Results(List<String> values) {
                 .toList();
     }
 
-
     public String value(int index) {
         return values.get(index);
     }
 
+
+    public boolean isNotSameSize(Participants participants) {
+        return values.size() != participants.size();
+    }
 }
