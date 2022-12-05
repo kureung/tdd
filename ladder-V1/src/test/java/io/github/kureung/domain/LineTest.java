@@ -53,7 +53,8 @@ class LineTest {
     @MethodSource
     @ParameterizedTest
     void 참여자들은_길을_건널_수_있다(Participants beforeCrossing, Line line, Participants afterCrossing) {
-        assertThat(line.participantsCrossedTheRoad(beforeCrossing)).isEqualTo(afterCrossing);
+        assertThat(line.participantsCrossedTheRoad(beforeCrossing))
+                .isEqualTo(afterCrossing);
     }
 
     @Test
