@@ -17,4 +17,8 @@ public enum Direction {
     public int xCoordinate(int x) {
         return xDistance + x;
     }
+
+    public int yCoordinate(int y) {
+        return yDistance + y;
+    }
 }

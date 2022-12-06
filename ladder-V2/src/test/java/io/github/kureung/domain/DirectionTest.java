@@ -14,6 +14,14 @@ class DirectionTest {
         return Stream.of(
                 of(Direction.RIGHT, 2),
                 of(Direction.LEFT, 0),
+                of(Direction.BOTTOM, 1)
+        );
+    }
+
+    private static Stream<Arguments> y좌표를_알_수_있다() {
+        return Stream.of(
+                of(Direction.RIGHT, 1),
+                of(Direction.LEFT, 1),
                 of(Direction.BOTTOM, 0)
         );
     }
@@ -22,5 +30,11 @@ class DirectionTest {
     @ParameterizedTest
     void x좌표를_알_수_있다(Direction direction, int result) {
         assertThat(direction.xCoordinate(1)).isEqualTo(result);
+    }
+
+    @MethodSource
+    @ParameterizedTest
+    void y좌표를_알_수_있다(Direction direction, int result) {
+        assertThat(direction.yCoordinate(1)).isEqualTo(result);
     }
 }
