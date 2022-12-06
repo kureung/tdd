@@ -18,10 +18,14 @@ class LadderTest {
 
     @Test
     void 사다리_결과를_알_수_있다() {
+        final Ladder ladder = ladder();
+        assertThat(ladder.result("1")).isEqualTo("2000");
+    }
+
+    private Ladder ladder() {
         final Lines lines = new Lines(new Line(true));
         final Participants participants = new Participants("1", "2");
         final Results results = new Results("1000", "2000");
-        final Ladder ladder = new Ladder(participants, lines, results);
-        assertThat(ladder.result("1")).isEqualTo("2000");
+        return new Ladder(participants, lines, results);
     }
 }

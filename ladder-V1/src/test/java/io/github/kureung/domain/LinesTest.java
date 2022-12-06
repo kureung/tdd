@@ -28,11 +28,15 @@ class LinesTest {
 
     @Test
     void 길을_건넌_결과를_알_수_있다() {
-        final Line firstLine = new Line(true);
-        final Line secondLine = new Line(false);
-        final Lines lines = new Lines(firstLine, secondLine);
+        final Lines lines = lines();
         final Participants participants = new Participants("a", "b");
         assertThat(lines.participantsCrossingTheRoad(participants))
                 .isEqualTo(new Participants("b", "a"));
+    }
+
+    private Lines lines() {
+        final Line firstLine = new Line(true);
+        final Line secondLine = new Line(false);
+        return new Lines(firstLine, secondLine);
     }
 }
