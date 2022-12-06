@@ -1,5 +1,7 @@
 package io.github.kureung.domain.position;
 
+import io.github.kureung.domain.Direction;
+
 import java.util.Objects;
 
 public class Position {
@@ -26,5 +28,9 @@ public class Position {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    public Position movedPosition(Direction direction) {
+        return new Position(direction.xCoordinate(x), direction.yCoordinate(y));
     }
 }
