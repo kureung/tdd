@@ -9,6 +9,9 @@ public class Position {
     private final int y;
 
     Position(int x, int y) {
+        if (x < 0) {
+            throw new IllegalArgumentException("x 좌표는 음수일 수 없습니다.");
+        }
         this.x = x;
         this.y = y;
     }
