@@ -12,4 +12,8 @@ public record User(String name, Position position) {
     public User(String name, int x) {
         this(name, Position.firstPoint(x));
     }
+
+    public User movedUser(Direction direction) {
+        return new User(name, position.movedPosition(direction));
+    }
 }
