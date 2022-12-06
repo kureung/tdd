@@ -9,8 +9,8 @@ public record User(String name, Position position) {
         }
     }
 
-    public User(String name, int x) {
-        this(name, Position.firstPoint(x));
+    public User(String name, int xCoordinate) {
+        this(name, Position.firstPoint(xCoordinate));
     }
 
     public User movedUser(Direction direction) {
