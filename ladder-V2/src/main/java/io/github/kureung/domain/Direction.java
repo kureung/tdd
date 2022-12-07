@@ -25,4 +25,8 @@ public enum Direction {
     public boolean isNotBottom() {
         return this != BOTTOM;
     }
+
+    public boolean isBottom() {
+        return this == BOTTOM;
+    }
 }

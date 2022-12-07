@@ -1,5 +1,6 @@
 package io.github.kureung.domain;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.EnumSource;
@@ -45,5 +46,10 @@ class DirectionTest {
     @EnumSource(mode = EXCLUDE, names = "BOTTOM", value = Direction.class)
     void 아래로_가는_방향이_아닐_경우_참이다(Direction direction) {
         assertTrue(direction.isNotBottom());
+    }
+
+    @Test
+    void 아래로_가는_방향일_경우_참이다() {
+        assertTrue(Direction.BOTTOM.isBottom());
     }
 }
