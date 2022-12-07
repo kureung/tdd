@@ -29,12 +29,12 @@ class DirectionTest {
     @MethodSource
     @ParameterizedTest
     void x좌표를_알_수_있다(Direction direction, int result) {
-        assertThat(direction.xCoordinate(1)).isEqualTo(result);
+        assertThat(direction.movedXCoordinate(1)).isEqualTo(result);
     }
 
     @MethodSource
     @ParameterizedTest
     void y좌표를_알_수_있다(Direction direction, int result) {
-        assertThat(direction.yCoordinate(1)).isEqualTo(result);
+        assertThat(direction.movedYCoordinate(1)).isEqualTo(result);
     }
 }

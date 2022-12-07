@@ -14,11 +14,12 @@ public enum Direction {
         this.yDistance = yDistance;
     }
 
-    public int xCoordinate(int x) {
-        return xDistance + x;
+    public int movedXCoordinate(int xCoordinate) {
+        return xDistance + xCoordinate;
     }
 
-    public int yCoordinate(int y) {
-        return yDistance + y;
+    public int movedYCoordinate(int yCoordinate) {
+        return yDistance + yCoordinate;
     }
+
 }

@@ -34,6 +34,6 @@ public class Position {
     }
 
     public Position movedPosition(Direction direction) {
-        return new Position(direction.xCoordinate(x), direction.yCoordinate(y));
+        return new Position(direction.movedXCoordinate(x), direction.movedYCoordinate(y));
     }
 }
