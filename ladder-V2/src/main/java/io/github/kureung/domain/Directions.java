@@ -4,11 +4,23 @@ import java.util.List;
 
 public record Directions(List<Direction> values) {
     public Directions {
+        verifyMustHaveBottom(values);
+        verifySize(values);
+    }
+
+    private void verifyMustHaveBottom(List<Direction> values) {
         boolean doesNotHaveBottom = values.stream()
                 .allMatch(Direction::isNotBottom);
 
         if (doesNotHaveBottom) {
             throw new IllegalArgumentException("무조건 아래로 가는 방향을 가지고 있어야 합니다.");
+        }
+    }
+
+    private void verifySize(List<Direction> values) {
+        final int DirectionCount = values.size();
+        if (2 < DirectionCount) {
+            throw new IllegalArgumentException("방향의 개수는 1개 또는 2개 이어야합니다.");
         }
     }
 
