@@ -22,4 +22,7 @@ public enum Direction {
         return yDistance + yCoordinate;
     }
 
+    public boolean isNotBottom() {
+        return this != BOTTOM;
+    }
 }
