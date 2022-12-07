@@ -6,8 +6,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 class PointTest {
     @Test
@@ -27,5 +26,25 @@ class PointTest {
         final Directions directions = new Directions(List.of(Direction.BOTTOM));
         assertThatCode(() -> new Point(directions, yCoordinate))
                 .doesNotThrowAnyException();
+    }
+
+    @Test
+    void y값이_일치할_경우_BOTTOM_방향을_반환한다() {
+        final Directions directions = new Directions(List.of(Direction.BOTTOM, Direction.RIGHT));
+        final int yCoordinate = 0;
+
+        final Point point = new Point(directions, yCoordinate);
+
+        assertThat(point.directionToGo(yCoordinate)).isEqualTo(Direction.BOTTOM);
+    }
+
+    @Test
+    void y값이_일치하지_않을_경우_BOTTOM_아닌_방향을_반환한다() {
+        final Directions directions = new Directions(List.of(Direction.BOTTOM, Direction.RIGHT));
+        final int yCoordinate = 0;
+
+        final Point point = new Point(directions, yCoordinate);
+
+        assertThat(point.directionToGo(1)).isEqualTo(Direction.RIGHT);
     }
 }
