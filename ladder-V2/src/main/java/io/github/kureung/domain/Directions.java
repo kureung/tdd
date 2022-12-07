@@ -35,4 +35,11 @@ public record Directions(List<Direction> values) {
                 .findFirst()
                 .orElseThrow(() -> new IllegalStateException("아래로 가는 방향만 존재합니다."));
     }
+
+    public Direction bottom() {
+        return values.stream()
+                .filter(Direction::isBottom)
+                .findFirst()
+                .orElseThrow(IllegalStateException::new);
+    }
 }

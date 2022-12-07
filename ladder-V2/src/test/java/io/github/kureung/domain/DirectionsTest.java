@@ -64,4 +64,10 @@ class DirectionsTest {
                 .isInstanceOf(IllegalStateException.class)
                 .hasMessage("아래로 가는 방향만 존재합니다.");
     }
+
+    @Test
+    void Bottom_방향을_조회할_수_있다() {
+        final Directions directions = new Directions(List.of(Direction.BOTTOM));
+        assertThat(directions.bottom()).isEqualTo(Direction.BOTTOM);
+    }
 }
