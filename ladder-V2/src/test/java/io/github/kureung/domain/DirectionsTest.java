@@ -9,8 +9,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.params.provider.EnumSource.Mode.EXCLUDE;
 
@@ -49,5 +48,20 @@ class DirectionsTest {
     void 방향들이_BOTTOM_방향만_가지면_참이다() {
         final Directions directions = new Directions(List.of(Direction.BOTTOM));
         assertTrue(directions.doesHaveOnlyBottom());
+    }
+
+    @Test
+    void 방향의_개수가_2개일_경우_Bottom_방향이_아닌_다른_방향을_조회할_수_있다() {
+        final List<Direction> values = List.of(Direction.BOTTOM, Direction.RIGHT);
+        final Directions directions = new Directions(values);
+        assertThat(directions.directionNotBottom()).isEqualTo(Direction.RIGHT);
+    }
+
+    @Test
+    void 방향의_개수가_1개이며_Bottom_방향이_아닌_다른_방향을_조회하려고_할_경우_예외가_발생한다() {
+        final Directions directions = new Directions(List.of(Direction.BOTTOM));
+        assertThatThrownBy(() -> directions.directionNotBottom())
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessage("아래로 가는 방향만 존재합니다.");
     }
 }

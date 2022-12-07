@@ -28,4 +28,11 @@ public record Directions(List<Direction> values) {
         return values.stream()
                 .allMatch(Direction::isBottom);
     }
+
+    public Direction directionNotBottom() {
+        return values.stream()
+                .filter(Direction::isNotBottom)
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("아래로 가는 방향만 존재합니다."));
+    }
 }
