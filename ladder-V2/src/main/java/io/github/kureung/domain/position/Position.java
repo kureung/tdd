@@ -36,4 +36,12 @@ public class Position {
     public Position movedPosition(Direction direction) {
         return new Position(direction.movedXCoordinate(x), direction.movedYCoordinate(y));
     }
+
+    public int x() {
+        return x;
+    }
+
+    public int y() {
+        return y;
+    }
 }
