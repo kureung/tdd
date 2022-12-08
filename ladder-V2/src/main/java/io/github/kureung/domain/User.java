@@ -17,4 +17,8 @@ public record User(String name, Position position) {
         Direction direction = point.directionToGo(position.y());
         return new User(name, position.movedPosition(direction));
     }
+
+    public int xCoordinate() {
+        return position.x();
+    }
 }

@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 class UserTest {
     @ParameterizedTest
@@ -24,5 +23,11 @@ class UserTest {
         assertThatThrownBy(() -> new User(name, 0))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이름은 5자를 초과할 수 없습니다.");
+    }
+
+    @Test
+    void 유저는_x좌표를_반환한다() {
+        User user = new User("1", 0);
+        assertThat(user.xCoordinate()).isEqualTo(0);
     }
 }
