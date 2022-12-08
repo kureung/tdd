@@ -13,7 +13,8 @@ public record User(String name, Position position) {
         this(name, Position.firstPoint(xCoordinate));
     }
 
-    public User movedUser(Direction direction) {
+    public User movedUser(Point point) {
+        Direction direction = point.directionToGo(position.y());
         return new User(name, position.movedPosition(direction));
     }
 }
