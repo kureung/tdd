@@ -12,4 +12,8 @@ public record Point(Directions directions, int yCoordinate) {
                 ? directions.bottom()
                 : directions.directionNotBottom();
     }
+
+    public boolean doesntHaveOnlyBottom() {
+        return !directions.doesHaveOnlyBottom();
+    }
 }
