@@ -1,11 +1,20 @@
 package io.github.kureung.domain;
 
+import java.util.Arrays;
 import java.util.List;
 
 public record Directions(List<Direction> values) {
     public Directions {
         verifyMustHaveBottom(values);
         verifySize(values);
+    }
+
+    public Directions(final Direction... values) {
+        this(collect(values));
+    }
+
+    private static List<Direction> collect(final Direction... values) {
+        return Arrays.stream(values).toList();
     }
 
     private void verifyMustHaveBottom(List<Direction> values) {
