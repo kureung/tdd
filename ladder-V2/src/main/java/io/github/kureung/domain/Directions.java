@@ -51,4 +51,8 @@ public record Directions(List<Direction> values) {
                 .findFirst()
                 .orElseThrow(IllegalStateException::new);
     }
+
+    public boolean isIncludeDirection(final Direction target) {
+        return values.contains(target);
+    }
 }

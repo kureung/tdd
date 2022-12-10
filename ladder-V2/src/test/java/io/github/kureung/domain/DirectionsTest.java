@@ -70,4 +70,10 @@ class DirectionsTest {
         final Directions directions = new Directions(List.of(Direction.BOTTOM));
         assertThat(directions.bottom()).isEqualTo(Direction.BOTTOM);
     }
+
+    @Test
+    void 해당하는_방향을_포함하는지_판별할_수_있다() {
+        final Directions directions = new Directions(Direction.RIGHT, Direction.BOTTOM);
+        assertTrue(directions.isIncludeDirection(Direction.RIGHT));
+    }
 }
