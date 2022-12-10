@@ -55,4 +55,8 @@ public record Directions(List<Direction> values) {
     public boolean isIncludeDirection(final Direction target) {
         return values.contains(target);
     }
+
+    public boolean isNotIncludeDirection(final Direction target) {
+        return !values.contains(target);
+    }
 }

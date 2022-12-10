@@ -20,4 +20,12 @@ public record Point(Directions directions, int yCoordinate) {
     public boolean isSameDirections(final Point point) {
         return this.directions.equals(point.directions);
     }
+
+    public boolean isIncludeDirection(final Direction target) {
+        return directions.isIncludeDirection(target);
+    }
+
+    public boolean isNotIncludeDirection(final Direction target) {
+        return directions.isNotIncludeDirection(target);
+    }
 }
