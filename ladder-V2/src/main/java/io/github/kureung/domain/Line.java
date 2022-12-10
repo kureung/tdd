@@ -1,5 +1,6 @@
 package io.github.kureung.domain;
 
+import java.util.Arrays;
 import java.util.List;
 
 public record Line(List<Point> points) {
@@ -9,6 +10,14 @@ public record Line(List<Point> points) {
             final Point nextPoint = points.get(index + 1);
             verifySameDirectionsExcludeBottom(currentPoint, nextPoint);
         }
+    }
+
+    public Line(final Point... points) {
+        this(convertedCollection(points));
+    }
+
+    private static List<Point> convertedCollection(final Point... points) {
+        return Arrays.stream(points).toList();
     }
 
     private void verifySameDirectionsExcludeBottom(final Point currentPoint, final Point nextPoint) {
