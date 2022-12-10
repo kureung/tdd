@@ -16,4 +16,8 @@ public record Point(Directions directions, int yCoordinate) {
     public boolean doesntHaveOnlyBottom() {
         return !directions.doesHaveOnlyBottom();
     }
+
+    public boolean isSameDirections(final Point point) {
+        return this.directions.equals(point.directions);
+    }
 }

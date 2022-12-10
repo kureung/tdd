@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PointTest {
     @Test
@@ -46,5 +47,15 @@ class PointTest {
         final Point point = new Point(directions, yCoordinate);
 
         assertThat(point.directionToGo(1)).isEqualTo(Direction.RIGHT);
+    }
+
+    @Test
+    void 방향들이_같으면_참이다() {
+        final Directions directions = new Directions(List.of(Direction.BOTTOM, Direction.RIGHT));
+        final int yCoordinate = 0;
+
+        final Point point = new Point(directions, yCoordinate);
+
+        assertTrue(point.isSameDirections(new Point(directions, -1)));
     }
 }
