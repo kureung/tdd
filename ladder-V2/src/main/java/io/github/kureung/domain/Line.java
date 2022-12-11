@@ -28,7 +28,7 @@ public record Line(List<Point> points) {
 
     private void verifyFirstPointDirections(final List<Point> points) {
         final Point firstPoint = points.get(0);
-        if (firstPoint.isIncludeDirection(Direction.LEFT)) {
+        if (firstPoint.isIncludeDirection(Direction.LEFT_AND_BOTTOM)) {
             throw new IllegalArgumentException("행의 첫번째 요소에는 왼쪽 방향을 가진 지점이 올 수 없습니다.");
         }
     }
@@ -48,7 +48,7 @@ public record Line(List<Point> points) {
     }
 
     private void verifyRightComeAfterLeft(final Point currentPoint, final Point nextPoint) {
-        if (currentPoint.isIncludeDirection(RIGHT_AND_BOTTOM) && nextPoint.isNotIncludeDirection(Direction.LEFT)) {
+        if (currentPoint.isIncludeDirection(RIGHT_AND_BOTTOM) && nextPoint.isNotIncludeDirection(Direction.LEFT_AND_BOTTOM)) {
             throw new IllegalArgumentException("오른쪽 방향을 가진 지점 다음에는 왼쪽 방향을 가진 지점이 와야합니다.");
         }
     }

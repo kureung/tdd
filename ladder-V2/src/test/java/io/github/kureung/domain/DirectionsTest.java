@@ -31,7 +31,7 @@ class DirectionsTest {
 
     @Test
     void 방향의_개수가_0개이거나_3개_이상일_경우_예외가_발생한다() {
-        List<Direction> values = List.of(Direction.BOTTOM, Direction.RIGHT_AND_BOTTOM, Direction.LEFT);
+        List<Direction> values = List.of(Direction.BOTTOM, Direction.RIGHT_AND_BOTTOM, Direction.LEFT_AND_BOTTOM);
         assertThatThrownBy(() -> new Directions(values))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("방향의 개수는 1개 또는 2개 이어야합니다.");

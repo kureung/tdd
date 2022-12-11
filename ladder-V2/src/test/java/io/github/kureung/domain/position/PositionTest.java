@@ -16,7 +16,7 @@ class PositionTest {
     private static Stream<Arguments> 포지션은_방향에_따라_위치가_변한다() {
         return Stream.of(
                 of(Direction.RIGHT_AND_BOTTOM, new Position(2, -1)),
-                of(Direction.LEFT, new Position(0, 0)),
+                of(Direction.LEFT_AND_BOTTOM, new Position(0, -1)),
                 of(Direction.BOTTOM, new Position(1, -1))
         );
     }
@@ -37,7 +37,7 @@ class PositionTest {
     @Test
     void 포지션의_x좌표가_음수일_경우_예외가_발생한다() {
         Position position = Position.firstPoint(0);
-        assertThatThrownBy(() -> position.movedPosition(Direction.LEFT))
+        assertThatThrownBy(() -> position.movedPosition(Direction.LEFT_AND_BOTTOM))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("x 좌표는 음수일 수 없습니다.");
     }

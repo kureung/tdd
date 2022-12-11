@@ -17,7 +17,7 @@ class DirectionTest {
     private static Stream<Arguments> x좌표를_알_수_있다() {
         return Stream.of(
                 of(Direction.RIGHT_AND_BOTTOM, 2),
-                of(Direction.LEFT, 0),
+                of(Direction.LEFT_AND_BOTTOM, 0),
                 of(Direction.BOTTOM, 1)
         );
     }
@@ -25,7 +25,7 @@ class DirectionTest {
     private static Stream<Arguments> y좌표를_알_수_있다() {
         return Stream.of(
                 of(Direction.RIGHT_AND_BOTTOM, 0),
-                of(Direction.LEFT, 1),
+                of(Direction.LEFT_AND_BOTTOM, 0),
                 of(Direction.BOTTOM, 0)
         );
     }

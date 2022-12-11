@@ -15,7 +15,7 @@ import static org.junit.jupiter.params.provider.Arguments.of;
 class LineTest {
     private static Stream<Arguments> 오른쪽_방향_또는_왼쪽_방향을_가진_포인트들이_연속으로_등장할_경우_예외가_발생한다() {
         return Stream.of(
-                of(List.of(Direction.LEFT, Direction.BOTTOM)),
+                of(List.of(Direction.LEFT_AND_BOTTOM, Direction.BOTTOM)),
                 of(List.of(Direction.RIGHT_AND_BOTTOM, Direction.BOTTOM))
         );
     }
@@ -56,7 +56,7 @@ class LineTest {
     @Test
     void 오른쪽_방향을_가진_지점_다음에는_왼쪽_방향을_가진_지점이_오면_예외가_발생하지_않는다() {
         final Directions rightAndBottom = new Directions(Direction.RIGHT_AND_BOTTOM, Direction.BOTTOM);
-        final Directions leftAndBottom = new Directions(Direction.LEFT, Direction.BOTTOM);
+        final Directions leftAndBottom = new Directions(Direction.LEFT_AND_BOTTOM, Direction.BOTTOM);
 
         final Point currentPoint = new Point(rightAndBottom, 0);
         final Point nextPoint = new Point(leftAndBottom, 0);
@@ -67,7 +67,7 @@ class LineTest {
 
     @Test
     void 행의_첫번째_요소에_왼쪽_방향을_가진_지점이_올_경우_예외가_발생한다() {
-        final Directions leftAndBottom = new Directions(Direction.LEFT, Direction.BOTTOM);
+        final Directions leftAndBottom = new Directions(Direction.LEFT_AND_BOTTOM, Direction.BOTTOM);
         final Point firstPoint = new Point(leftAndBottom, 0);
 
         assertThatThrownBy(() -> new Line(firstPoint))
