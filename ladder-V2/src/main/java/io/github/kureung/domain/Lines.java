@@ -16,11 +16,9 @@ public record Lines(List<Line> values) {
     }
 
     public int movedXCoordinate(final User user) {
-        User result = user;
-        for (final Line value : values) {
-            result = result.movedUser(value);
-        }
-        return result.xCoordinate();
+        final User movedUser = values.stream()
+                .reduce(user, User::movedUser, (user1, user2) -> user1);
+        return movedUser.xCoordinate();
     }
 
     public int directionsSize() {
