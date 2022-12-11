@@ -1,5 +1,6 @@
 package io.github.kureung.domain;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -20,5 +21,13 @@ class UsersTest {
         assertThatThrownBy(() -> users.user("b"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("존재하지 않는 이름입니다.");
+    }
+
+    @Test
+    void 유저들_수와_결과들의_개수가_다르면_참이다() {
+        final Users users = new Users(List.of(new User("a", 0)));
+        final Results results = new Results(List.of("당첨", "꽝"));
+        Assertions.assertTrue(users.isNotTheSameSize(results));
+
     }
 }

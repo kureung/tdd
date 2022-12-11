@@ -9,4 +9,8 @@ public record Users(List<User> values) {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 이름입니다."));
     }
+
+    public boolean isNotTheSameSize(final Results results) {
+        return this.values.size() != results.size();
+    }
 }
