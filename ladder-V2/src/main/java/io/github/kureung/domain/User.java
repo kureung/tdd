@@ -1,6 +1,5 @@
 package io.github.kureung.domain;
 
-import io.github.kureung.domain.position.Position;
 
 public record User(String name, Position position) {
     public User {
@@ -9,11 +8,11 @@ public record User(String name, Position position) {
         }
     }
 
-    public User(String name, int xCoordinate) {
-        this(name, Position.firstPoint(xCoordinate));
+    public User(final String name, final int xCoordinate) {
+        this(name, new Position(xCoordinate));
     }
 
     public int xCoordinate() {
-        return position.x();
+        return position.xCoordinate();
     }
 }

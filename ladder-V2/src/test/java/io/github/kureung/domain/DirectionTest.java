@@ -20,24 +20,10 @@ class DirectionTest {
         );
     }
 
-    private static Stream<Arguments> y좌표를_알_수_있다() {
-        return Stream.of(
-                of(Direction.RIGHT_AND_BOTTOM, 0),
-                of(Direction.LEFT_AND_BOTTOM, 0),
-                of(Direction.BOTTOM, 0)
-        );
-    }
-
     @MethodSource
     @ParameterizedTest
     void x좌표를_알_수_있다(Direction direction, int result) {
         assertThat(direction.movedXCoordinate(1)).isEqualTo(result);
-    }
-
-    @MethodSource
-    @ParameterizedTest
-    void y좌표를_알_수_있다(final Direction direction, final int result) {
-        assertThat(direction.movedYCoordinate(1)).isEqualTo(result);
     }
 
     @Test
