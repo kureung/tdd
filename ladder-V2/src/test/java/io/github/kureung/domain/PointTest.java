@@ -31,7 +31,7 @@ class PointTest {
 
     @Test
     void y값이_일치할_경우_BOTTOM_방향을_반환한다() {
-        final Directions directions = new Directions(List.of(Direction.BOTTOM, Direction.RIGHT));
+        final Directions directions = new Directions(List.of(Direction.BOTTOM, Direction.RIGHT_AND_BOTTOM));
         final int yCoordinate = 0;
 
         final Point point = new Point(directions, yCoordinate);
@@ -41,17 +41,17 @@ class PointTest {
 
     @Test
     void y값이_일치하지_않을_경우_BOTTOM_아닌_방향을_반환한다() {
-        final Directions directions = new Directions(List.of(Direction.BOTTOM, Direction.RIGHT));
+        final Directions directions = new Directions(List.of(Direction.BOTTOM, Direction.RIGHT_AND_BOTTOM));
         final int yCoordinate = 0;
 
         final Point point = new Point(directions, yCoordinate);
 
-        assertThat(point.directionToGo(1)).isEqualTo(Direction.RIGHT);
+        assertThat(point.directionToGo(1)).isEqualTo(Direction.RIGHT_AND_BOTTOM);
     }
 
     @Test
     void 방향들이_같으면_참이다() {
-        final Directions directions = new Directions(List.of(Direction.BOTTOM, Direction.RIGHT));
+        final Directions directions = new Directions(List.of(Direction.BOTTOM, Direction.RIGHT_AND_BOTTOM));
         final int yCoordinate = 0;
 
         final Point point = new Point(directions, yCoordinate);

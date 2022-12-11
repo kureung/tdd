@@ -15,7 +15,7 @@ import static org.junit.jupiter.params.provider.Arguments.of;
 class PositionTest {
     private static Stream<Arguments> 포지션은_방향에_따라_위치가_변한다() {
         return Stream.of(
-                of(Direction.RIGHT, new Position(2, 0)),
+                of(Direction.RIGHT_AND_BOTTOM, new Position(2, -1)),
                 of(Direction.LEFT, new Position(0, 0)),
                 of(Direction.BOTTOM, new Position(1, -1))
         );
@@ -29,8 +29,8 @@ class PositionTest {
 
     @MethodSource
     @ParameterizedTest
-    void 포지션은_방향에_따라_위치가_변한다(Direction direction, Position result) {
-        Position position = Position.firstPoint(1);
+    void 포지션은_방향에_따라_위치가_변한다(final Direction direction, final Position result) {
+        final Position position = Position.firstPoint(1);
         assertThat(position.movedPosition(direction)).isEqualTo(result);
     }
 

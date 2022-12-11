@@ -17,7 +17,7 @@ class DirectionsTest {
     private static Stream<Arguments> Bottom_방향을_가지고_있으며_방향의_개수는_1개_또는_2개이어야_예외가_발생하지_않는다() {
         return Stream.of(
                 Arguments.of(List.of(Direction.BOTTOM)),
-                Arguments.of(List.of(Direction.BOTTOM, Direction.RIGHT))
+                Arguments.of(List.of(Direction.BOTTOM, Direction.RIGHT_AND_BOTTOM))
         );
     }
 
@@ -31,7 +31,7 @@ class DirectionsTest {
 
     @Test
     void 방향의_개수가_0개이거나_3개_이상일_경우_예외가_발생한다() {
-        List<Direction> values = List.of(Direction.BOTTOM, Direction.RIGHT, Direction.LEFT);
+        List<Direction> values = List.of(Direction.BOTTOM, Direction.RIGHT_AND_BOTTOM, Direction.LEFT);
         assertThatThrownBy(() -> new Directions(values))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("방향의 개수는 1개 또는 2개 이어야합니다.");
@@ -52,9 +52,9 @@ class DirectionsTest {
 
     @Test
     void 방향의_개수가_2개일_경우_Bottom_방향이_아닌_다른_방향을_조회할_수_있다() {
-        final List<Direction> values = List.of(Direction.BOTTOM, Direction.RIGHT);
+        final List<Direction> values = List.of(Direction.BOTTOM, Direction.RIGHT_AND_BOTTOM);
         final Directions directions = new Directions(values);
-        assertThat(directions.directionNotBottom()).isEqualTo(Direction.RIGHT);
+        assertThat(directions.directionNotBottom()).isEqualTo(Direction.RIGHT_AND_BOTTOM);
     }
 
     @Test
@@ -73,7 +73,7 @@ class DirectionsTest {
 
     @Test
     void 해당하는_방향을_포함하는지_판별할_수_있다() {
-        final Directions directions = new Directions(Direction.RIGHT, Direction.BOTTOM);
-        assertTrue(directions.isIncludeDirection(Direction.RIGHT));
+        final Directions directions = new Directions(Direction.RIGHT_AND_BOTTOM, Direction.BOTTOM);
+        assertTrue(directions.isIncludeDirection(Direction.RIGHT_AND_BOTTOM));
     }
 }

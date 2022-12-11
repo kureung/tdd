@@ -1,7 +1,7 @@
 package io.github.kureung.domain;
 
 public enum Direction {
-    RIGHT(1, 0),
+    RIGHT_AND_BOTTOM(1, -1),
     LEFT(-1, 0),
     BOTTOM(0, -1),
     ;

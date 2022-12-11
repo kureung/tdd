@@ -3,7 +3,7 @@ package io.github.kureung.domain;
 import java.util.Arrays;
 import java.util.List;
 
-import static io.github.kureung.domain.Direction.RIGHT;
+import static io.github.kureung.domain.Direction.RIGHT_AND_BOTTOM;
 
 public record Line(List<Point> points) {
     public Line {
@@ -35,7 +35,7 @@ public record Line(List<Point> points) {
 
     private void verifyLastPointDirections(final List<Point> points) {
         final Point lastPoint = points.get(points.size() - 1);
-        if (lastPoint.isIncludeDirection(RIGHT)) {
+        if (lastPoint.isIncludeDirection(RIGHT_AND_BOTTOM)) {
             throw new IllegalArgumentException("행의 마지막 요소에는 오른쪽 방향을 가진 지점이 올 수 없습니다.");
         }
 
@@ -48,7 +48,7 @@ public record Line(List<Point> points) {
     }
 
     private void verifyRightComeAfterLeft(final Point currentPoint, final Point nextPoint) {
-        if (currentPoint.isIncludeDirection(RIGHT) && nextPoint.isNotIncludeDirection(Direction.LEFT)) {
+        if (currentPoint.isIncludeDirection(RIGHT_AND_BOTTOM) && nextPoint.isNotIncludeDirection(Direction.LEFT)) {
             throw new IllegalArgumentException("오른쪽 방향을 가진 지점 다음에는 왼쪽 방향을 가진 지점이 와야합니다.");
         }
     }

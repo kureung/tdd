@@ -16,7 +16,7 @@ import static org.junit.jupiter.params.provider.EnumSource.Mode.EXCLUDE;
 class DirectionTest {
     private static Stream<Arguments> x좌표를_알_수_있다() {
         return Stream.of(
-                of(Direction.RIGHT, 2),
+                of(Direction.RIGHT_AND_BOTTOM, 2),
                 of(Direction.LEFT, 0),
                 of(Direction.BOTTOM, 1)
         );
@@ -24,7 +24,7 @@ class DirectionTest {
 
     private static Stream<Arguments> y좌표를_알_수_있다() {
         return Stream.of(
-                of(Direction.RIGHT, 1),
+                of(Direction.RIGHT_AND_BOTTOM, 0),
                 of(Direction.LEFT, 1),
                 of(Direction.BOTTOM, 0)
         );
@@ -38,7 +38,7 @@ class DirectionTest {
 
     @MethodSource
     @ParameterizedTest
-    void y좌표를_알_수_있다(Direction direction, int result) {
+    void y좌표를_알_수_있다(final Direction direction, final int result) {
         assertThat(direction.movedYCoordinate(1)).isEqualTo(result);
     }
 
