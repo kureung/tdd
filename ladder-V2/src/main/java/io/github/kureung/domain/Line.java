@@ -14,11 +14,9 @@ public record Line(List<Direction> directions) {
         for (int i = 0; i < directions.size() -1; i++) {
             final Direction current = directions.get(i);
             final Direction next = directions.get(i+1);
-
             verifyRightComeAfterLeft(current, next);
-
+            verifyLeftComeAfterLeft(current, next);
         }
-
     }
 
     public Line(final Direction... directions) {
@@ -47,6 +45,12 @@ public record Line(List<Direction> directions) {
     private void verifyRightComeAfterLeft(final Direction current, final Direction next) {
         if (current.isTheSame(RIGHT_AND_BOTTOM) && next.isNotTheSame(LEFT_AND_BOTTOM)) {
             throw new IllegalArgumentException("오른쪽 방향 다음에는 왼쪽 방향이 와야합니다.");
+        }
+    }
+
+    private void verifyLeftComeAfterLeft(final Direction current, final Direction next) {
+        if (current.isTheSame(LEFT_AND_BOTTOM) && next.isTheSame(LEFT_AND_BOTTOM)) {
+            throw new IllegalArgumentException("왼쪽 방향이 연속으로 올 수 없습니다.");
         }
     }
 }

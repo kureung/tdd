@@ -25,4 +25,11 @@ class LineTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("오른쪽 방향 다음에는 왼쪽 방향이 와야합니다.");
     }
+
+    @Test
+    void 왼쪽_방향이_연속으로_존재할_경우_예외가_발생한다() {
+        assertThatThrownBy(() -> new Line(Direction.BOTTOM, Direction.LEFT_AND_BOTTOM, Direction.LEFT_AND_BOTTOM))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("왼쪽 방향이 연속으로 올 수 없습니다.");
+    }
 }
