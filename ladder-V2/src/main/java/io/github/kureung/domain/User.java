@@ -15,4 +15,8 @@ public record User(String name, Position position) {
     public int xCoordinate() {
         return position.xCoordinate();
     }
+
+    public User movedUser(final Direction direction) {
+        return new User(name, position.movedPosition(direction));
+    }
 }
