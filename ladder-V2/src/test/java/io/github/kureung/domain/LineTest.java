@@ -18,4 +18,11 @@ class LineTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("마지막번째 방향이 오른쪽일 수 없습니다.");
     }
+
+    @Test
+    void 오른쪽_방향_다음에는_왼쪽_방향이_나오지_않으면_예외가_발생한다() {
+        assertThatThrownBy(() -> new Line(Direction.RIGHT_AND_BOTTOM, Direction.BOTTOM))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("오른쪽 방향 다음에는 왼쪽 방향이 와야합니다.");
+    }
 }

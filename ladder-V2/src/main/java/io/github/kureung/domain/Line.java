@@ -3,10 +3,22 @@ package io.github.kureung.domain;
 import java.util.Arrays;
 import java.util.List;
 
+import static io.github.kureung.domain.Direction.LEFT_AND_BOTTOM;
+import static io.github.kureung.domain.Direction.RIGHT_AND_BOTTOM;
+
 public record Line(List<Direction> directions) {
     public Line {
         verifyFirstDirection(directions);
         verifyLastDirection(directions);
+
+        for (int i = 0; i < directions.size() -1; i++) {
+            final Direction current = directions.get(i);
+            final Direction next = directions.get(i+1);
+
+            verifyRightComeAfterLeft(current, next);
+
+        }
+
     }
 
     public Line(final Direction... directions) {
@@ -20,15 +32,21 @@ public record Line(List<Direction> directions) {
 
     private void verifyFirstDirection(final List<Direction> directions) {
         final Direction firstDirection = directions.get(0);
-        if (firstDirection == Direction.LEFT_AND_BOTTOM) {
+        if (firstDirection == LEFT_AND_BOTTOM) {
             throw new IllegalArgumentException("첫번째 방향이 왼쪽일 수 없습니다.");
         }
     }
 
     private void verifyLastDirection(final List<Direction> directions) {
         final Direction lastDirection = directions.get(directions.size() - 1);
-        if (lastDirection == Direction.RIGHT_AND_BOTTOM) {
+        if (lastDirection == RIGHT_AND_BOTTOM) {
             throw new IllegalArgumentException("마지막번째 방향이 오른쪽일 수 없습니다.");
+        }
+    }
+
+    private void verifyRightComeAfterLeft(final Direction current, final Direction next) {
+        if (current.isTheSame(RIGHT_AND_BOTTOM) && next.isNotTheSame(LEFT_AND_BOTTOM)) {
+            throw new IllegalArgumentException("오른쪽 방향 다음에는 왼쪽 방향이 와야합니다.");
         }
     }
 }
