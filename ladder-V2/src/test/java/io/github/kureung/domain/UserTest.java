@@ -12,7 +12,7 @@ class UserTest {
             "1",
             "12345"
     })
-    void 유저의_이름은_1자_이상_5자_이하이어야_한다(String name) {
+    void 유저의_이름은_1자_이상_5자_이하이어야_한다(final String name) {
         assertThatCode(() -> new User(name, 0))
                 .doesNotThrowAnyException();
     }
@@ -27,7 +27,7 @@ class UserTest {
 
     @Test
     void 유저는_x좌표를_반환한다() {
-        User user = new User("1", 0);
-        assertThat(user.xCoordinate()).isEqualTo(0);
+        final User user = new User("1", 0);
+        assertThat(user.xCoordinate()).isZero();
     }
 }
