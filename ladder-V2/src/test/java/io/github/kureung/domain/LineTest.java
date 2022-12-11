@@ -40,4 +40,13 @@ class LineTest {
         final Line line = new Line(Direction.RIGHT_AND_BOTTOM, Direction.LEFT_AND_BOTTOM);
         assertThat(line.movedPosition(position)).isEqualTo(new Position(1));
     }
+
+    @Test
+    void 포지션의_x좌표가_행의_요소보다_많을_경우_예외가_발생한다() {
+        final Position position = new Position(2);
+        final Line line = new Line(Direction.RIGHT_AND_BOTTOM, Direction.LEFT_AND_BOTTOM);
+        assertThatThrownBy(() -> line.movedPosition(position))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("포지션의 x 좌표가 유효하지 않습니다.");
+    }
 }

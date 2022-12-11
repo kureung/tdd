@@ -11,9 +11,9 @@ public record Line(List<Direction> directions) {
         verifyFirstDirection(directions);
         verifyLastDirection(directions);
 
-        for (int i = 0; i < directions.size() -1; i++) {
+        for (int i = 0; i < directions.size() - 1; i++) {
             final Direction current = directions.get(i);
-            final Direction next = directions.get(i+1);
+            final Direction next = directions.get(i + 1);
             verifyRightComeAfterLeft(current, next);
             verifyLeftComeAfterLeft(current, next);
         }
@@ -55,7 +55,15 @@ public record Line(List<Direction> directions) {
     }
 
     public Position movedPosition(final Position position) {
-        final Direction direction = directions.get(position.xCoordinate());
+        final int xCoordinate = position.xCoordinate();
+        verifyValidXCoordinate(xCoordinate);
+        final Direction direction = directions.get(xCoordinate);
         return position.movedPosition(direction);
+    }
+
+    private void verifyValidXCoordinate(final int xCoordinate) {
+        if (xCoordinate < 0 || directions.size() <= xCoordinate) {
+            throw new IllegalArgumentException("포지션의 x 좌표가 유효하지 않습니다.");
+        }
     }
 }
