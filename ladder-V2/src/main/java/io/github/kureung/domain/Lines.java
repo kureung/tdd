@@ -15,7 +15,7 @@ public record Lines(List<Line> values) {
                 .anyMatch(firstLine::isNotTheSameSize);
     }
 
-    public int movedUser(final User user) {
+    public int movedXCoordinate(final User user) {
         User result = user;
         for (final Line value : values) {
             result = result.movedUser(value);

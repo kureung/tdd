@@ -16,7 +16,7 @@ class LinesTest {
 
         final Lines lines = new Lines(List.of(firstLine, secondLine));
 
-        assertThat(lines.movedUser(user)).isZero();
+        assertThat(lines.movedXCoordinate(user)).isZero();
     }
 
     @Test
