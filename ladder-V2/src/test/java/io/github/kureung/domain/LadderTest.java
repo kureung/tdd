@@ -39,4 +39,15 @@ class LadderTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("유저 수와 결과의 개수가 일치하지 않습니다.");
     }
+
+    @Test
+    void 각_행의_방향_개수와_유저의수가_같지않으면_예외가_발생한다() {
+        final Lines lines = new Lines(List.of(new Line(Direction.BOTTOM)));
+        final Users users = users();
+        final Results results = results();
+
+        assertThatThrownBy(() -> new Ladder(lines, users, results))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("유저 수와 각 행의 방향 개수가 일치하지 않습니다.");
+    }
 }

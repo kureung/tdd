@@ -5,6 +5,10 @@ public record Ladder(Lines lines, Users users, Results results) {
         if (users.isNotTheSameSize(results)) {
             throw new IllegalArgumentException("유저 수와 결과의 개수가 일치하지 않습니다.");
         }
+
+        if (users.isNotTheSameSize(lines)) {
+            throw new IllegalArgumentException("유저 수와 각 행의 방향 개수가 일치하지 않습니다.");
+        }
     }
 
     public String result(final String name) {
