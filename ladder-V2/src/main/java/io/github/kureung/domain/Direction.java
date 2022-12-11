@@ -21,12 +21,4 @@ public enum Direction {
     public int movedYCoordinate(int yCoordinate) {
         return yDistance + yCoordinate;
     }
-
-    public boolean isNotBottom() {
-        return this != BOTTOM;
-    }
-
-    public boolean isBottom() {
-        return this == BOTTOM;
-    }
 }
