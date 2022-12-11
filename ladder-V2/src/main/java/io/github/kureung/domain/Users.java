@@ -13,4 +13,8 @@ public record Users(List<User> values) {
     public boolean isNotTheSameSize(final Results results) {
         return this.values.size() != results.size();
     }
+
+    public boolean isNotTheSameSize(final Lines lines) {
+        return this.values.size() != lines.directionsSize();
+    }
 }

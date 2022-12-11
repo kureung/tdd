@@ -1,12 +1,12 @@
 package io.github.kureung.domain;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class UsersTest {
     @Test
@@ -27,7 +27,19 @@ class UsersTest {
     void 유저들_수와_결과들의_개수가_다르면_참이다() {
         final Users users = new Users(List.of(new User("a", 0)));
         final Results results = new Results(List.of("당첨", "꽝"));
-        Assertions.assertTrue(users.isNotTheSameSize(results));
+        assertTrue(users.isNotTheSameSize(results));
+    }
 
+    @Test
+    void 유저들_수와_행의_요소_개수가_다르면_참이다() {
+        final Users users = twoUsers();
+        final Lines lines = new Lines(List.of(new Line(Direction.BOTTOM)));
+        assertTrue(users.isNotTheSameSize(lines));
+    }
+
+    private Users twoUsers() {
+        final User userA = new User("a", 0);
+        final User userB = new User("b", 0);
+        return new Users(List.of(userA, userB));
     }
 }
