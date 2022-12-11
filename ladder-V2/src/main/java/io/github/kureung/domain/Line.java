@@ -53,4 +53,9 @@ public record Line(List<Direction> directions) {
             throw new IllegalArgumentException("왼쪽 방향이 연속으로 올 수 없습니다.");
         }
     }
+
+    public Position movedPosition(final Position position) {
+        final Direction direction = directions.get(position.xCoordinate());
+        return position.movedPosition(direction);
+    }
 }

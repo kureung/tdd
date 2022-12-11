@@ -2,6 +2,7 @@ package io.github.kureung.domain;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class LineTest {
@@ -31,5 +32,12 @@ class LineTest {
         assertThatThrownBy(() -> new Line(Direction.BOTTOM, Direction.LEFT_AND_BOTTOM, Direction.LEFT_AND_BOTTOM))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("왼쪽 방향이 연속으로 올 수 없습니다.");
+    }
+
+    @Test
+    void 포지션의_x좌표값에_존재하는_방향에_의해_움직일_수_있다() {
+        final Position position = new Position(0);
+        final Line line = new Line(Direction.RIGHT_AND_BOTTOM, Direction.LEFT_AND_BOTTOM);
+        assertThat(line.movedPosition(position)).isEqualTo(new Position(1));
     }
 }
