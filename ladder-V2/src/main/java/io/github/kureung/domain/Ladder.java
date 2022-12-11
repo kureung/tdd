@@ -13,8 +13,8 @@ public record Ladder(Lines lines, Users users, Results results) {
 
     public String result(final String name) {
         final User user = users.user(name);
-        final int XCoordition = lines.movedXCoordinate(user);
-        return results.result(XCoordition);
+        final int XCoordinate = lines.movedXCoordinate(user);
+        return results.result(XCoordinate);
     }
 }
 
