@@ -22,4 +22,8 @@ public record Lines(List<Line> values) {
         }
         return result.xCoordinate();
     }
+
+    public int directionsSize() {
+        return values.get(0).size();
+    }
 }

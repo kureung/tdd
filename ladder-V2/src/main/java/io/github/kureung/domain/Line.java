@@ -70,4 +70,8 @@ public record Line(List<Direction> directions) {
     public boolean isNotTheSameSize(final Line target) {
         return this.directions.size() != target.directions.size();
     }
+
+    public int size() {
+        return directions.size();
+    }
 }
