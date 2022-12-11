@@ -9,4 +9,8 @@ public record Results(List<String> values) {
         }
         return values.get(index);
     }
+
+    public int size() {
+        return values.size();
+    }
 }
