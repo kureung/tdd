@@ -1,5 +1,6 @@
 package io.github.kureung.domain;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,6 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.params.provider.Arguments.of;
 
 class DirectionTest {
@@ -36,5 +38,15 @@ class DirectionTest {
     @ParameterizedTest
     void y좌표를_알_수_있다(final Direction direction, final int result) {
         assertThat(direction.movedYCoordinate(1)).isEqualTo(result);
+    }
+
+    @Test
+    void 같은_방향이면_참이다() {
+        assertTrue(Direction.BOTTOM.isTheSame(Direction.BOTTOM));
+    }
+
+    @Test
+    void 다른_방향이면_참이다() {
+        assertTrue(Direction.BOTTOM.isNotTheSame(Direction.RIGHT_AND_BOTTOM));
     }
 }

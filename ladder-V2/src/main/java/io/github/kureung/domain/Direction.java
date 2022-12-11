@@ -21,4 +21,12 @@ public enum Direction {
     public int movedYCoordinate(int yCoordinate) {
         return yDistance + yCoordinate;
     }
+
+    public boolean isTheSame(final Direction target) {
+        return this == target;
+    }
+
+    public boolean isNotTheSame(final Direction target) {
+        return this != target;
+    }
 }
