@@ -66,4 +66,8 @@ public record Line(List<Direction> directions) {
             throw new IllegalArgumentException("포지션의 x 좌표가 유효하지 않습니다.");
         }
     }
+
+    public boolean isNotTheSameSize(final Line target) {
+        return this.directions.size() != target.directions.size();
+    }
 }

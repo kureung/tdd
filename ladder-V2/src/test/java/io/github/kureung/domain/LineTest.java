@@ -1,5 +1,6 @@
 package io.github.kureung.domain;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -48,5 +49,11 @@ class LineTest {
         assertThatThrownBy(() -> line.movedPosition(position))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("포지션의 x 좌표가 유효하지 않습니다.");
+    }
+
+    @Test
+    void 라인의_요소의_개수가_다르면_참이다() {
+        final Line line = new Line(Direction.BOTTOM);
+        Assertions.assertTrue(line.isNotTheSameSize(new Line(Direction.BOTTOM, Direction.BOTTOM)));
     }
 }
