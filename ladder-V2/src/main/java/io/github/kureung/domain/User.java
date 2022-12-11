@@ -1,6 +1,8 @@
 package io.github.kureung.domain;
 
 
+import java.util.Objects;
+
 public record User(String name, Position position) {
     public User {
         if (5 < name.length()) {
@@ -18,5 +20,9 @@ public record User(String name, Position position) {
 
     public User movedUser(final Line line) {
         return new User(name, line.movedPosition(position));
+    }
+
+    public boolean isTheSameName(final String name) {
+        return Objects.equals(this.name, name);
     }
 }

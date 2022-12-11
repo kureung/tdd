@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class UserTest {
     @ParameterizedTest
@@ -29,5 +30,11 @@ class UserTest {
     void 유저는_x좌표를_반환한다() {
         final User user = new User("1", 0);
         assertThat(user.xCoordinate()).isZero();
+    }
+
+    @Test
+    void 유저의_이름이_같으면_참이다() {
+        final User user = new User("a", 0);
+        assertTrue(user.isTheSameName("a"));
     }
 }
