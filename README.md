@@ -1,1 +1,2 @@
 # TDD CODE KATA
+TDD 연습
