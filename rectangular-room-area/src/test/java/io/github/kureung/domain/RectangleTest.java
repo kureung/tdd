@@ -24,4 +24,10 @@ class RectangleTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("가로 길이와 세로 길이는 양수이어야 합니다.");
     }
+
+    @Test
+    void 직사각형의_면적을_미터_단위로_구할_수_있다() {
+        final Rectangle rectangle = new Rectangle(15, 20);
+        assertThat(rectangle.areaInMeter()).isEqualTo(27.871);
+    }
 }

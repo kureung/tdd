@@ -10,4 +10,9 @@ public record Rectangle(int widthInFeet, int heightInFeet) {
     public int areaInFeet() {
         return widthInFeet * heightInFeet;
     }
+
+    public double areaInMeter() {
+        final double metersPerFeet = 0.09290304;
+        return (double) Math.round(areaInFeet() * metersPerFeet * 1000) / 1000;
+    }
 }
