@@ -11,4 +11,9 @@ public record Input() {
         System.out.print("What is hte length of hte room in feet?");
         return Integer.parseInt(BUFFERED_READER.readLine());
     }
+
+    public int width() throws IOException {
+        System.out.print("What is the width of the room in feet?");
+        return Integer.parseInt(BUFFERED_READER.readLine());
+    }
 }
