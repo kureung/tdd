@@ -10,4 +10,8 @@ public record Pizza(int pieces) {
             throw new IllegalArgumentException("피자 조각 개수는 짝수이어야 합니다.");
         }
     }
+
+    public int piecesPerPerson(final People pizzaEaters) {
+        return pieces / pizzaEaters.countPeople();
+    }
 }
