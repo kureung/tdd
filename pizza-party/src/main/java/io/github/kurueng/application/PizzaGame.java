@@ -23,4 +23,8 @@ public record PizzaGame(Pizzas pizzas, People people) {
     public int numberOfPiecesPerPizza() {
         return pizzas.numberOfPiecesPerPizza();
     }
+
+    public int peopleCount() {
+        return people.peopleCount();
+    }
 }
