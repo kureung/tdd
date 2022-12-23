@@ -1,5 +1,6 @@
 package io.github.kurueng.domain;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -15,5 +16,12 @@ class PizzaTest {
         assertThatThrownBy(() -> new Pizza(pieces))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("피자 조각 개수는 양수이어야 합니다.");
+    }
+
+    @Test
+    void 피자_조각이_짝수가_아닐_경우_예외가_발생한다() {
+        assertThatThrownBy(() -> new Pizza(1))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("피자 조각 개수는 짝수이어야 합니다.");
     }
 }
