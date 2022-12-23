@@ -20,4 +20,10 @@ class PizzasTest {
         final Pizzas pizzas = new Pizzas(List.of(new Pizza(4)));
         assertThat(pizzas.leftoversPieces(eaters)).isEqualTo(1);
     }
+
+    @Test
+    void 한_피자당_피자_조각_개수() {
+        final Pizzas pizzas = new Pizzas(List.of(new Pizza(4)));
+        assertThat(pizzas.numberOfPiecesPerPizza()).isEqualTo(4);
+    }
 }

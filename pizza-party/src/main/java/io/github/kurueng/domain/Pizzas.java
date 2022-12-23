@@ -17,4 +17,8 @@ public record Pizzas(List<Pizza> values) {
                 .mapToInt(Pizza::pieces)
                 .sum();
     }
+
+    public int numberOfPiecesPerPizza() {
+        return values.get(0).pieces();
+    }
 }
