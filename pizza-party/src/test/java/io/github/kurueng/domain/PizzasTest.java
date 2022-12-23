@@ -18,6 +18,6 @@ class PizzasTest {
     void 피자를_나눈_후_남은_조각을_구할_수_있다() {
         final People eaters = new People(3);
         final Pizzas pizzas = new Pizzas(List.of(new Pizza(4)));
-        assertThat(pizzas.leftoversPeieces(eaters)).isEqualTo(1);
+        assertThat(pizzas.leftoversPieces(eaters)).isEqualTo(1);
     }
 }

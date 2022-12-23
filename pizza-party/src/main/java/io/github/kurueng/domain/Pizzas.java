@@ -8,7 +8,7 @@ public record Pizzas(List<Pizza> values) {
         return pieces / eaters.countPeople();
     }
 
-    public int leftoversPeieces(final People eaters) {
+    public int leftoversPieces(final People eaters) {
         return pieces() % eaters.countPeople();
     }
 
