@@ -20,11 +20,11 @@ public class Pizzas {
 
     public int piecesPerPerson(final People eaters) {
         final int pieces = pieces();
-        return pieces / eaters.countPeople();
+        return pieces / eaters.peopleCount();
     }
 
     public int leftoversPieces(final People eaters) {
-        return pieces() % eaters.countPeople();
+        return pieces() % eaters.peopleCount();
     }
 
     private int pieces() {
