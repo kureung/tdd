@@ -33,4 +33,10 @@ class PizzasTest {
         final Pizzas pizzas = Pizzas.initBy(4, 1);
         assertThat(pizzas.numberOfPiecesPerPizza()).isEqualTo(4);
     }
+
+    @Test
+    void 피자_개수_구하기() {
+        final Pizzas pizzas = Pizzas.initBy(4, 1);
+        assertThat(pizzas.numberOfPizza()).isEqualTo(1);
+    }
 }

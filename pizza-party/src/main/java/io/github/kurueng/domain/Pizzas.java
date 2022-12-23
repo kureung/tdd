@@ -49,4 +49,8 @@ public class Pizzas {
     public int hashCode() {
         return Objects.hash(values);
     }
+
+    public int numberOfPizza() {
+        return values.size();
+    }
 }
