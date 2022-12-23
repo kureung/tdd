@@ -14,4 +14,8 @@ public record Pizza(int pieces) {
     public int piecesPerPerson(final People pizzaEaters) {
         return pieces / pizzaEaters.countPeople();
     }
+
+    public int leftoversPeieces(final People pizzaEaters) {
+        return pieces % pizzaEaters.countPeople();
+    }
 }

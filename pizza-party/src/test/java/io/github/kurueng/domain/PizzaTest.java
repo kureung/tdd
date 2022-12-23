@@ -32,4 +32,11 @@ class PizzaTest {
         final Pizza pizza = new Pizza(8);
         assertThat(pizza.piecesPerPerson(pizzaEaters)).isEqualTo(4);
     }
+
+    @Test
+    void 피자를_나눈_후_남은_조각을_구할_수_있다() {
+        final People pizzaEaters = new People(3);
+        final Pizza pizza = new Pizza(4);
+        assertThat(pizza.leftoversPeieces(pizzaEaters)).isEqualTo(1);
+    }
 }
