@@ -8,4 +8,10 @@ public record Items(List<Item> values) {
                 .mapToDouble(Item::subTotal)
                 .sum();
     }
+
+    public double tax() {
+        return values.stream()
+                .mapToDouble(Item::tax)
+                .sum();
+    }
 }
