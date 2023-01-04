@@ -9,4 +9,8 @@ public record Item(int price, int quantity) {
         final double tax = 5.5;
         return (price * quantity) * tax / 100;
     }
+
+    public double totalPrice() {
+        return subTotal() - tax();
+    }
 }
