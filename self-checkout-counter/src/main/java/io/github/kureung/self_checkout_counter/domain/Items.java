@@ -14,4 +14,10 @@ public record Items(List<Item> values) {
                 .mapToDouble(Item::tax)
                 .sum();
     }
+
+    public double totalPrice() {
+        return values.stream()
+                .mapToDouble(Item::totalPrice)
+                .sum();
+    }
 }
