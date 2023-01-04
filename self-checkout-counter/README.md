@@ -18,8 +18,8 @@ Price of item 3: 4
 Quantity of item 3: 1
 
 Subtotal: $64.00
-Tax: %3.52
-Total: %67.52
+Tax: $3.52
+Total: $60.48
 ```
 
 
